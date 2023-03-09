@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const db = require('./connection');
+//const db = require('./connection');
 const bodyParser = require('body-parser');
 const path = require('path');
-//const upload = require('./uploads');
+const upload = require('./uploads');
 
 app.use(express.static(path.resolve('./public')));
 app.use(bodyParser.json());
@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 var obj = {};
 
 app.get('/', function(req,res){
+    // KOD SOM FUNGERAR, ANVÄND SEN
 //    let sql = 'SELECT * FROM post ORDER BY id ASC';
 //    db.query(sql, function(err, results){
 //        if(err) {
@@ -26,7 +27,11 @@ app.get('/', function(req,res){
     res.render('index')
 });
 app.get('/edit', (req,res) => {
+    res.render('edit');
+})
 
+app.post('/upload', upload.single('file'), (req,res) => {
+    res.render('index');
 })
 
 
