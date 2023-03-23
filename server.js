@@ -26,12 +26,21 @@ app.get('/', function(req,res){
 //    });
     res.render('index')
 });
-app.get('/edit', (req,res) => {
+app.get('/upload', (req, res) => {
+    res.render('upload');
+})
+app.get('/edit', (req, res) => {
     res.render('edit');
+} )
+app.get('/register', (req, res) => {
+    res.render('register')
+})
+app.post('/register', (req, res) => {
+
 })
 
 app.post('/upload', upload.single('file'), (req,res) => {
-    res.render('index');
+    res.redirect(`/edit#${ req.file.filename.split('.')[0] }`);
 })
 
 

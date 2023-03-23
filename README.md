@@ -1,4 +1,4 @@
-# Title
+# Logbok
 
 
 ## 2 Mars
@@ -11,4 +11,13 @@
 - Det här har jag gjort: jag har egentligen bara fått igång filuppladdning
 - Det här ska jag göra nästa gång: göra ljudfil redigering
 - Det här behöver jag göra rent generellt: få allt att fungera på viss nivå
+(- Om det är något specifikt man behöver hjälp med)
+
+## 14 Mars
+- Jag har en bug där .
+
+## 23 Mars
+- Det här har jag gjort: fått sidan riktigt stabil
+- Det här ska jag göra nästa gång: fortfarande göra ljudfil redigering
+- Det här behöver jag göra rent generellt: fattar typ inte frågan
 (- Om det är något specifikt man behöver hjälp med)
