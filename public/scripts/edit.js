@@ -1,13 +1,10 @@
-$.noConflict();
-
-
-jQuery(document).ready( () => {
-    console.log('asdf');
+$(document).ready( () => {
+    //console.log('asdf'); //WORKING, remov dis line
     build();
 })
 let sound;
 function build() {
-    sound.play();
+    //sound.play();
 
 }
 
@@ -16,5 +13,24 @@ function preload() {
     sound = loadSound(`uploads/temp/${ window.location.href.split('#')[1] }`);
 }
 function setup() {
+    $(".buttons").append($(`<button onclick="playSound()" id="playbtn">Click to play the sound</button>`))
+    $(".buttons").append($(`<button onclick="speedUpSound()" id="speedupbtn">Click to speed up the sound</button>`))
+    $(".buttons").append($(`<button onclick="slowDownSound()" id="slowdownbtn">Click to slow down the sound</button>`))
+    $(".buttons").append($(`<button onclick="uploadSound()" id="uploadbtn">Click to upload the sound to the servers!</button>`))
+}
+function playSound() {
+    sound.play();
+}
+let rate = 1;
+function speedUpSound() {
+    rate += 0.5;
+    sound.rate(rate);
+}
+function slowDownSound() {
+    rate -= 0.5;
+    sound.rate(rate);
+}
+function uploadSound() {
+    window.location = `http://localhost:3000/uploadvideotodb/${window.location.href.split('#')[1]}`;
     
 }

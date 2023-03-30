@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/assets/style.css">
+        <script src="../scripts/main.js"></script>
+        <title>finalization</title>
+    </head>
+    <body>
+        <form action="/uploadvideotodb" method="post" enctype="multipart/form-data" id ="form">
+            <input type="text" name="soundname" id="name" placeholder="The sounds name">
+            <input type="text" name="description" id="description" placeholder="Description">
+            <input type="text" name="tags" id="tags" placeholder="tags (separate by ,)">
+            <input type="submit" value="Upload" name="submit">
+        </form>
+    </body>
+</html>
+<script>
+    document.querySelector("#form").action = "/uploadvideotodb/" + window.location.href.split("/")[4]
+    console.log(window.location.href.split("/")[4])
+</script>

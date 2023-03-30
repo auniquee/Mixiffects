@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-//const db = require('./connection');
+const db = require('./connection');
 const bodyParser = require('body-parser');
 const path = require('path');
 const upload = require('./uploads');
@@ -37,6 +37,23 @@ app.get('/register', (req, res) => {
 })
 app.post('/register', (req, res) => {
 
+})
+app.get('/uploadvideotodb/:id', (req, res) => {
+    res.render('uploadtodb');
+})
+app.post('/uploadvideotodb/:id', (req, res) => {
+    const title = req.body.name;
+    const description = req.body.description;
+    const location = "/uploads/user/" + req.params.id;
+    const tags = req.body.tags;
+    const sqlInstert = "INSERT INTO sounds (name, description, user, location, tags) VALUES (?, ?, ?, ?, ?);"
+    db.query(sqlInstert, [title, description, "guest", location, tags], (err, result)=> {
+        if(err) {
+            throw err;
+        } else {
+            res.send('post added!');
+        }
+    });
 })
 
 app.post('/upload', upload.single('file'), (req,res) => {
