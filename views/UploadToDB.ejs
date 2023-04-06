@@ -10,7 +10,7 @@
         <title>finalization</title>
     </head>
     <body>
-        <form action="/uploadvideotodb" method="post" enctype="multipart/form-data" id ="form">
+        <form action="/uploadvideotodb" method="post" id ="form">
             <input type="text" name="soundname" id="name" placeholder="The sounds name">
             <input type="text" name="description" id="description" placeholder="Description">
             <input type="text" name="tags" id="tags" placeholder="tags (separate by ,)">
@@ -20,5 +20,4 @@
 </html>
 <script>
     document.querySelector("#form").action = "/uploadvideotodb/" + window.location.href.split("/")[4]
-    console.log(window.location.href.split("/")[4])
 </script>

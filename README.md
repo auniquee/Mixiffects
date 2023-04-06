@@ -27,3 +27,8 @@
 - Det här ska jag göra nästa gång: göra att det går att ladda upp allt på databasen
 - Det här behöver jag göra rent generellt: Har en bugg som innebär att kommunikationen mellan html filen UploadToDB.ejs inte lyckas skicka sin dator till servern server.js, det blir endast null
 (- Om det är något specifikt man behöver hjälp med)
+## 6 April
+- Det här har jag gjort: Fått till riktigt fin kommunikation mellan databasen och servern, man kan nu ladda up videor  och kan man se dem på sidan, däremot lyckas jag inte spara redigeringarna gjorda
+- Det här ska jag göra nästa gång: fixa så att allt sparas när man laddar upp jludbitar
+- Det här behöver jag göra rent generellt: fixa style
+(- Om det är något specifikt man behöver hjälp med)

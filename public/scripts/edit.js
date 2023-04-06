@@ -27,10 +27,32 @@ function speedUpSound() {
     sound.rate(rate);
 }
 function slowDownSound() {
-    rate -= 0.5;
+    rate /= 1.5;
     sound.rate(rate);
 }
-function uploadSound() {
+async function uploadSound() {
+    await sound.getBlob((blob) => {
+        uploadSoundFile(blob);
+    });
     window.location = `http://localhost:3000/uploadvideotodb/${window.location.href.split('#')[1]}`;
     
 }
+async function uploadSoundFile(blob) {
+    const formData = new FormData();
+    formData.append("soundFile", blob, window.location.href.split('#')[1] + ".wav"); // Use the appropriate file format
+  
+    try {
+      const response = await fetch("/upload", { // Replace "/upload" with your server-side upload endpoint
+        method: "POST",
+        body: formData,
+      });
+  
+      if (response.ok) {
+        console.log("File uploaded successfully");
+      } else {
+        console.error("Upload failed:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
+  }
