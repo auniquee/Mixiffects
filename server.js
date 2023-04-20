@@ -3,7 +3,7 @@ const app = express();
 const db = require('./connection');
 const bodyParser = require('body-parser');
 const path = require('path');
-const upload = require('./uploads');
+const { upload, uploadSaveChanges }= require('./uploads.js');
 const fs = require('fs');
 
 app.use(express.static(path.resolve('./public')));
@@ -15,7 +15,6 @@ app.set('view engine', 'ejs');
 var obj = {};
 
 app.get('/', function(req,res){
- //KOD SOM FUNGERAR, ANVÄND SEN
     let sql = 'SELECT * FROM sounds ORDER BY date ASC';
     db.query(sql, function(err, results){
         if(err) {
@@ -54,17 +53,19 @@ app.post('/uploadvideotodb/:id', (req, res) => {
         } else {
             res.redirect("/");
             fs.rename(`public/uploads/temp/${req.params.id}.wav`, `public/${location}`, function (err) {
-                if (err) throw err 
+                if (err) throw err   
             }); //flyttar filen till user
         }
     });
     
 })
+app.post('/savevideo', uploadSaveChanges.single('file'), (req, res) => {
+    console.log("Received file:", req.file);
+}); // sparar videon
 
 app.post('/upload', upload.single('file'), (req,res) => {
     res.redirect(`/edit#${ req.file.filename.split('.')[0] }`);
-})
-
+});
 
 // app.get('/post', (req, res) => {
 //     res.render('post');

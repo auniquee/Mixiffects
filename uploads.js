@@ -6,11 +6,19 @@ const storage = multer.diskStorage({
        cb(null, 'public/uploads/temp');
    },
    filename: function(req, file, cb){
-       console.log(file);
        cb(null, Date.now() + path.extname(file.originalname));
    }
 });
 
+const storageSaveChanges = multer.diskStorage({
+    destination: 'public/uploads/temp',
+    filename: function (req, file, cb) {
+        cb(null, file.originalname); 
+    },
+});
+  
+const uploadSaveChanges = multer({ storage: storageSaveChanges });
+  
 const upload = multer({
    storage: storage,
    limit: {filesize: 1024 * 1024 * 64}, //64 mb
@@ -22,9 +30,7 @@ const upload = multer({
 function checkFileType(file, cb){
    const filetypes = /mp3|wav|audio\/mpeg/;
    const extname =filetypes.test(path.extname(file.originalname).toLocaleLowerCase());
-   console.log(file.originalname, extname);
    const mimetype = filetypes.test(file.mimetype);
-   console.log(file.mimetype)
 
    if(mimetype && extname) {
        return cb(null, true);
@@ -32,4 +38,7 @@ function checkFileType(file, cb){
        cb('Error: Sound Files Only!');
    }
 }
-module.exports = upload;
+module.exports = { 
+    upload, 
+    uploadSaveChanges 
+};

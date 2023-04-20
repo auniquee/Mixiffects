@@ -30,19 +30,19 @@ function slowDownSound() {
     rate /= 1.5;
     sound.rate(rate);
 }
-async function uploadSound() {
-    await sound.getBlob((blob) => {
-        uploadSoundFile(blob);
-    });
-    window.location = `http://localhost:3000/uploadvideotodb/${window.location.href.split('#')[1]}`;
+function uploadSound() {
+    sound.dispose();
+    uploadSoundFile(sound.getBlob());
+    //window.location = `http://localhost:3000/uploadvideotodb/${window.location.href.split('#')[1]}`;
     
 }
 async function uploadSoundFile(blob) {
+    
     const formData = new FormData();
-    formData.append("soundFile", blob, window.location.href.split('#')[1] + ".wav"); // Use the appropriate file format
-  
+    formData.append("file", blob, window.location.href.split('#')[1] + ".wav");
+    console.log("trying!")
     try {
-      const response = await fetch("/upload", { // Replace "/upload" with your server-side upload endpoint
+      const response = await fetch("http://localhost:3000/savevideo", {
         method: "POST",
         body: formData,
       });
