@@ -5,21 +5,52 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/assets/style.css">
+        <link rel="stylesheet" type="text/css" href="/assets/index.css">
         <script src="/scripts/main.js"></script>
         <title>Document</title>
     </head>
     <body>
-        <h1>hello world</h1> <!-- Säger 'hej' till världen.(På engelska språket.) -->
-        <% data.forEach(function (sound) { %>
-            <p><%= sound.name %></p>
-            <audio controls>
-                <source src="<%= sound.location %>" type="audio/wav"/>
+        <div class="container">
 
-              </audio>
+            <div class="header">
+                <div class="title">
+                    <h1>Mixiffects</h1>
+                </div>
+            </div>
 
-            <p>Made by <%= sound.user %></p>
-            <br><br>
+            <div class="recent">
+                <h2>Recent uploads</h2>
+                <% data.forEach(function (sound) { %>
+                    <p><%= sound.name %></p>
+                    <audio controls>
+                        <source src="<%= sound.location %>" type="audio/wav"/>
+        
+                      </audio>
+        
+                    <p>Made by <%= sound.user %></p>
+                    <br><br>
+                <% }) %>
+            </div>
 
-    <% }) %>
+            <div class="upload">
+                <button onclick="window.location.href='/upload'"><h2>Upload</h2></button>
+            </div>
+
+            <div class="friends">
+                <h2>Friends</h2>
+                <p>Coming soon...</p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- <h1>hello world</h1>  Säger 'hej' till världen.(På engelska språket.) -->
+
+
+
     </body>
 </html>

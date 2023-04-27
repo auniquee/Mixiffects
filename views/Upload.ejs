@@ -5,13 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/assets/style.css">
+        <link rel="stylesheet" type="text/css" href="/assets/upload.css">
         <script src="scripts/main.js"></script>
         <title>Document</title>
     </head>
     <body>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="fileToUpload">
-            <input type="submit" value="Upload" name="submit">
-        </form>
+        <div class="container">
+            <div class="uploadform">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="fileToUpload">
+                    <input type="submit" value="Upload" name="submit">
+                </form>
+            </div>
+        </div>
     </body>
 </html>

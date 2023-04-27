@@ -39,7 +39,7 @@ function uploadSound() {
 async function uploadSoundFile(blob) {
     
     const formData = new FormData();
-    formData.append("file", blob, window.location.href.split('#')[1] + ".wav");
+    formData.append("file", blob, window.location.href.split('#')[1]);
     console.log("trying!")
     try {
       const response = await fetch("http://localhost:3000/savevideo", {

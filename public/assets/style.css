@@ -1,8 +1,12 @@
-body {
-  background-color: grey;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+* {
+  margin: 0;
 }
-body img {
-  width: 20%;
+
+body {
+  background-color: #272D2D;
+  color: white;
+  font-family: "Roboto Mono", monospace;
 }
 body p {
   border-bottom: 2px solid black;

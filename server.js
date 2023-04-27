@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 var obj = {};
 
 app.get('/', function(req,res){
-    let sql = 'SELECT * FROM sounds ORDER BY date ASC';
+    let sql = 'SELECT * FROM sounds ORDER BY date DESC LIMIT 10';
     db.query(sql, function(err, results){
         if(err) {
             throw err;
@@ -64,7 +64,7 @@ app.post('/savevideo', uploadSaveChanges.single('file'), (req, res) => {
 }); // sparar videon
 
 app.post('/upload', upload.single('file'), (req,res) => {
-    res.redirect(`/edit#${ req.file.filename.split('.')[0] }`);
+    res.redirect(`/edit#${ req.file.filename }`);
 });
 
 // app.get('/post', (req, res) => {
