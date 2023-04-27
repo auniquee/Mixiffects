@@ -21,7 +21,7 @@ const uploadSaveChanges = multer({ storage: storageSaveChanges });
   
 const upload = multer({
    storage: storage,
-   limit: {filesize: 1024 * 1024 * 64}, //64 mb
+   limit: {filesize: 1024 * 1024 * 1024}, //1 gb / 1024 mb
    fileFilter: function(req, file, cb){
        checkFileType(file, cb)
    }

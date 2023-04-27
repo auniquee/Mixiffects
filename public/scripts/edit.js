@@ -21,18 +21,19 @@ function setup() {
 function playSound() {
     sound.play();
 }
-let rate = 1;
+let rate = 100;
 function speedUpSound() {
-    rate += 0.5;
-    sound.rate(rate);
+    rate *= 1.5;
+    sound.setBPM(rate);
 }
 function slowDownSound() {
     rate /= 1.5;
-    sound.rate(rate);
+    sound.setBPM(rate);
 }
 function uploadSound() {
-    sound.dispose();
+    sound.save("test")
     uploadSoundFile(sound.getBlob());
+    sound.dispose();
     //window.location = `http://localhost:3000/uploadvideotodb/${window.location.href.split('#')[1]}`;
     
 }
@@ -42,7 +43,7 @@ async function uploadSoundFile(blob) {
     formData.append("file", blob, window.location.href.split('#')[1]);
     console.log("trying!")
     try {
-      const response = await fetch("http://localhost:3000/savevideo", {
+      const response = await fetch(`http://localhost:3000/savevideo?filename=${window.location.href.split('#')[1]}`, {
         method: "POST",
         body: formData,
       });

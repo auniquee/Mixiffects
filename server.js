@@ -59,8 +59,19 @@ app.post('/uploadvideotodb/:id', (req, res) => {
     });
     
 })
-app.post('/savevideo', uploadSaveChanges.single('file'), (req, res) => {
+app.post('/savevideo', async (req, res, next) => {
     console.log("Received file:", req.file);
+      // Path to the existing file
+    const filePath = path.join(__dirname, './public/uploads/temp', req.query.filename);
+
+    // Check if file exists
+    if (fs.existsSync(filePath)) {
+        // If file exists, delete it
+        fs.unlinkSync(filePath);
+    }
+    next();
+},  uploadSaveChanges.single('file'), (req, res) => {
+    console.log(req.file)
 }); // sparar videon
 
 app.post('/upload', upload.single('file'), (req,res) => {

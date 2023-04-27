@@ -37,3 +37,10 @@
 - Det här ska jag göra nästa gång: lösa ljudsparar buggen
 - Det här behöver jag göra rent generellt: få allt att fungera! (inte ens konton, utan de jag redan börjat med)
 (- Om det är något specifikt man behöver hjälp med)
+## 27 April
+- Det här har jag gjort: Har stylat hela sidan och gjort den responsiv
+- Det här ska jag göra nästa gång: lösa ljudsparar buggen (samma)
+- Det här behöver jag göra rent generellt: få allt att fungera! (inte ens konton, utan de jag redan börjat med) (samma)
+(- Om det är något specifikt man behöver hjälp med)
+## 27 April
+- ANVÄND INTE p5SOUND NÅGONSIN VÄRSTA BESLUTET AV MITT LIV
