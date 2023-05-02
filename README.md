@@ -44,3 +44,6 @@
 (- Om det är något specifikt man behöver hjälp med)
 ## 27 April
 - ANVÄND INTE p5SOUND NÅGONSIN VÄRSTA BESLUTET AV MITT LIV
+
+## 2 Maj
+- push innan jag migrerar från p5 till python
