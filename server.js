@@ -4,6 +4,7 @@ const db = require('./connection');
 const bodyParser = require('body-parser');
 const path = require('path');
 const { upload, uploadSaveChanges }= require('./uploads.js');
+const spawn = require('child_process').spawn;
 const fs = require('fs');
 
 app.use(express.static(path.resolve('./public')));
@@ -58,7 +59,28 @@ app.post('/uploadvideotodb/:id', (req, res) => {
         }
     });
     
-})
+});                                                 //1         2           3
+app.post("/edit/py/:id", (req, res) => { // /edit/py?videoname&functionname&speed[OPTIONAL]
+    const idParams = req.params.id.split('&');
+    var dataToSend;
+    // spawn new child process to call the python script
+
+    //console.log(idParams)
+    const python = spawn('python', ['./public/scripts/python/main.py', idParams[0], idParams[1], idParams[2]]);
+    
+    python.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    python.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    python.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+        res.send(`Python script executed with code ${code}`);
+    });
+});
 app.post('/savevideo', async (req, res, next) => {
     console.log("Received file:", req.file);
       // Path to the existing file

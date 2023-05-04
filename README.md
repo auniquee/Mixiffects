@@ -47,3 +47,10 @@
 
 ## 2 Maj
 - push innan jag migrerar från p5 till python
+
+## 4 maj
+- Det här har jag gjort: försökt lösa en bug med ffmpeg hela lektion, den påstås inte hitta en fil
+- Det här ska jag göra nästa gång: kanske fortsätta på samma bugg
+- Det här behöver jag göra rent generellt: få all den sista funktionalliteten att fungera
+(- Om det är något specifikt man behöver hjälp med)
+- övrigt: det finns en ny fil: desktop.ini, den kom från ingenstans, fråga jason
