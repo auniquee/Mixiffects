@@ -53,7 +53,7 @@ app.post('/uploadvideotodb/:id', (req, res) => {
             throw err;
         } else {
             res.redirect("/");
-            fs.rename(`public/uploads/temp/${req.params.id}.wav`, `public/${location}`, function (err) {
+            fs.rename(`public/uploads/temp/${req.params.id}`, `public/${location}`, function (err) {
                 if (err) throw err   
             }); //flyttar filen till user
         }
@@ -67,18 +67,23 @@ app.post("/edit/py/:id", (req, res) => { // /edit/py?videoname&functionname&spee
 
     //console.log(idParams)
     const python = spawn('python', ['./public/scripts/python/main.py', idParams[0], idParams[1], idParams[2]]);
-    
+    /*
     python.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
     });
-
+    */
     python.stderr.on('data', (data) => {
         console.error(`stderr: ${data}`);
     });
 
     python.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
-        res.send(`Python script executed with code ${code}`);
+        fs.rename(`public/uploads/temp/edited_${idParams[0]}`,
+         `public/uploads/temp/${idParams[0]}`,
+        (err) => {
+            if (err) throw err;
+        });
+        res.sendStatus(200);
     });
 });
 app.post('/savevideo', async (req, res, next) => {
