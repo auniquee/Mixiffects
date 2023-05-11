@@ -54,3 +54,7 @@
 - Det här behöver jag göra rent generellt: få all den sista funktionalliteten att fungera
 (- Om det är något specifikt man behöver hjälp med)
 - övrigt: det finns en ny fil: desktop.ini, den kom från ingenstans, fråga jason
+
+## 11 Maj
+### inlämning
+- du måste installera ffmpeg på din dator till path för att det ska fungera, (du måste ha python också!)
