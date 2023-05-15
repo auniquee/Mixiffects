@@ -58,3 +58,6 @@
 ## 11 Maj
 ### inlämning
 - du måste installera ffmpeg på din dator till path för att det ska fungera, (du måste ha python också!)
+
+## 15 maj
+- Glömde spara min scss

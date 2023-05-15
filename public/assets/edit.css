@@ -1,1 +1,39 @@
-/*# sourceMappingURL=edit.css.map */
+body {
+  background-color: #222831;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+.buttons button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #393e46;
+  color: #eeeeee;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.buttons button:hover {
+  background-color: #00adb5;
+}
+
+#success {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}/*# sourceMappingURL=edit.css.map */
