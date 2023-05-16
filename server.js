@@ -81,7 +81,7 @@ app.post("/edit/py/:id", (req, res) => { // /edit/py?videoname&functionname&spee
         fs.rename(`public/uploads/temp/edited_${idParams[0]}`,
          `public/uploads/temp/${idParams[0]}`,
         (err) => {
-            if (err) throw err;
+            if (err) throw err; 
         });
         res.sendStatus(200);
     });
